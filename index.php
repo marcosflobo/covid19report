@@ -56,9 +56,7 @@
             },
 
             legend: {
-                layout: 'vertical',
-                align: 'right',
-                verticalAlign: 'middle'
+                enabled: false
             },
 
             plotOptions: {
@@ -93,9 +91,7 @@
             },
 
             legend: {
-                layout: 'vertical',
-                align: 'right',
-                verticalAlign: 'middle'
+                enabled: false
             },
 
             plotOptions: {
@@ -130,9 +126,7 @@
             },
 
             legend: {
-                layout: 'vertical',
-                align: 'right',
-                verticalAlign: 'middle'
+                enabled: false
             },
 
             plotOptions: {
