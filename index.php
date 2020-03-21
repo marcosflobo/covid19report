@@ -1,3 +1,6 @@
+<?php
+require_once ('vars.php');
+?>
 <!DOCTYPE HTML>
 <html lang="en">
   <head>
@@ -11,23 +14,62 @@
     gtag('config', 'UA-2180015-4');
     </script>
 
-    <title>Coronavirus (COVID-19) Global Situation - daily update</title>
+    <title>Coronavirus (COVID-19) Situaci&oacute;n mundial - Actualizaci&oacute;n diaria</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="css/css.css">
   </head>
   <body>
-    <h1>Coronavirus (COVID-19) Global Situation - daily update</h1>
-    <figure class="highcharts-figure">
-        <div id="container_confirmed"></div>
-    </figure>
-    
-    <figure class="highcharts-figure">
-        <div id="container_deaths"></div>
-    </figure>
+    <h1>Coronavirus (COVID-19) Situaci&oacute;n mundial - Actualizaci&oacute;n diaria</h1>
+    <div class="container" style="display: flex; flex-wrap: wrap; width: 100%;">
+            <div class="container-left" style="display: flex; flex-direction: column; flex-basis: 100%; flex: 1;">
+                <div id="world_total_num_confirmed" class="text-cases">
+                    <div class="number">
+                        <?php echo number_format($numConfirmedCases, 0, ',', '.'); ?>
+                    </div>
+                    <div class="text">
+                        Casos confirmados
+                    </div>
+                </div>
 
-    <figure class="highcharts-figure">
-        <div id="container_recovered"></div>
-    </figure>
+                <div id="world_total_num_deaths" class="text-cases">
+                    <div class="number">
+                        <?php echo number_format($numDeathsCases, 0, ',', '.'); ?>
+                    </div>
+                    <div class="text">
+                        Personas fallecidas
+                    </div>
+                </div>
+
+                <div id="world_total_num_recovered" class="text-cases">
+                    <div class="number">
+                        <?php echo number_format($numRecoveredCases, 0, ',', '.'); ?>
+                    </div>
+                    <div class="text">
+                        Personas recuperadas
+                    </div>
+                </div>
+            </div>
+            <div style="display: flex; flex-direction: column; flex: 5">
+                <div>
+                <figure class="highcharts-figure">
+                    <div id="container_confirmed"></div>
+                </figure>
+                </div>
+                <div>
+                <figure class="highcharts-figure">
+                    <div id="container_deaths"></div>
+                </figure>
+                </div>
+                <div>
+                <figure class="highcharts-figure">
+                    <div id="container_recovered"></div>
+                </figure>
+                </div>
+            </div>
+    </div>
+    
 
     <script type="text/javascript" src="result.js"></script>
     <script src="https://code.highcharts.com/highcharts.js"></script>
@@ -42,12 +84,12 @@
             },
             
             title: {
-                text: 'COVID19 - Confirmed cases'
+                text: 'COVID19 - Casos confirmados'
             },
 
             yAxis: {
                 title: {
-                    text: 'Number of Confirmed Cases'
+                    text: 'Numero de casos confirmados'
                 }
             },
 
@@ -77,12 +119,12 @@
             },
             
             title: {
-                text: 'COVID19 - Deaths cases'
+                text: 'COVID19 - Personas fallecidas'
             },
 
             yAxis: {
                 title: {
-                    text: 'Number of Deaths Cases'
+                    text: 'Numero de personas fallecidas'
                 }
             },
 
@@ -112,12 +154,12 @@
             },
             
             title: {
-                text: 'COVID19 - Recovered cases'
+                text: 'COVID19 - Personas recuperadas'
             },
 
             yAxis: {
                 title: {
-                    text: 'Number of Recovered Cases'
+                    text: 'Numero de personas recuperdas'
                 }
             },
 

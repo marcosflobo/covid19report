@@ -1,0 +1,1 @@
+<?php $numConfirmedCases = 272167; $numDeathsCases = 11299;$numRecoveredCases = 87403; 

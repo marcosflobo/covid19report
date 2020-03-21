@@ -61,7 +61,7 @@ $totalDays = ($numDays - 1);
 for ($i=0; $i < $totalDays; $i++) { 
 	$d = date('m-d-Y', strtotime($dateStartString . ' +'. $i .' day'));
 
-	//echo $baseUrl . $d . ".csv";
+	//echo $baseUrl . $d . ".csv<br>";
 	$csv = file_get_contents($baseUrl . $d . ".csv");
 	$data = split("\n", $csv);
 	for ($j = 1 ; $j < count($data) - 1; $j ++) {
@@ -115,9 +115,11 @@ for ($i=0; $i < $totalDays; $i++) {
 // print ($numRecoveredCases);
 // print_r($resultDeaths);
 // echo "</pre>";
+$phpString = "<?php \$numConfirmedCases = $numConfirmedCases; \$numDeathsCases = $numDeathsCases; \$numRecoveredCases = $numRecoveredCases; ";
 $jsString = getVarStringJavascript("resultConfirmed", $resultConfirmed);
 $jsString .= getVarStringJavascript("resultDeaths", $resultDeaths);
 $jsString .= getVarStringJavascript("resultRecovered", $resultRecovered);
 //echo $jsString;
 file_put_contents("result.js", $jsString);
+file_put_contents("vars.php", $phpString);
 ?>

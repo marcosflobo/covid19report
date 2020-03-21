@@ -1,6 +1,7 @@
 * {
     margin: 0;
     padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 h1, footer {
@@ -14,6 +15,27 @@ footer {
     text-align: center;
 }
 
+.container-left {
+    background-color: #DDDDDD;
+}
+
+.text-cases {
+    text-align: center;
+    margin: 1em;
+    padding: 1em;
+    border: 1px solid #ffffff;
+    background-color: #EEEEEE;
+}
+
+.text-cases .number {
+    font-size: 3em;
+    font-weight: bold;
+}
+
+.text-cases .text {
+    font-size: 1.2em;
+    font-weight: bold;
+}
 
 /************ HIGHCHARTS ***********/
 
