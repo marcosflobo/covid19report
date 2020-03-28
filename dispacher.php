@@ -20,11 +20,17 @@ function getValueForhighcharts($xAxisDateString, $value) {
 
 function fillResultSet($country, &$result, $value) {
 	if (array_key_exists($country, $result)) {
-		array_push($result[$country]["data"], $value);
+		if (array_key_exists($value[0], $result[$country]["data"])) {
+			$result[$country]["data"][$value[0]][1] += $value[1];
+		} else {
+			//array_push($result[$country]["data"], $value);
+			$result[$country]["data"][$value[0]] = $value;
+		}
+		
 	} else {
 		$result[$country] = array(
 			"name" => $country,
-			"data" => array($value)
+			"data" => array($value[0] => $value)
 		);
 	}
 }
@@ -46,7 +52,6 @@ function getVarStringJavascript($varName, $arrayResult) {
 
 $baseUrl = 'https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/';
 $dateStartString = "2020-01-22";
-//$dateStartString = "2020-03-22";
 $now = time();
 //echo date("Y-m-d H:i:s", $now) . "<br>";
 $dateStart = strtotime($dateStartString);
@@ -67,8 +72,7 @@ $countries = [];
 $numRealCountries = 0;
 
 $totalDays = ($numDays - 1);
-//$totalDays = 1;
-//echo $totalDays . "<br>";
+//$totalDays = 5;
 for ($i=0; $i < $totalDays ; $i++) { 
 	$iterTimeStamp = strtotime($dateStartString . ' +'. $i .' day');
 	$d = date('m-d-Y', $iterTimeStamp);
@@ -98,7 +102,7 @@ for ($i=0; $i < $totalDays ; $i++) {
 		$countries[] = $country;
 
 		if (!empty($arrayAux[$indexArraySwift + 0])) {
-			$country = $arrayAux[$indexArraySwift + 0] . "-" . $country;
+			//$country = $arrayAux[$indexArraySwift + 0] . "-" . $country;
 			$state = addslashes($arrayAux[$indexArraySwift + 0]);
 		}
 
