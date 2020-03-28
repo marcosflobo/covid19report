@@ -17,6 +17,7 @@ require_once ('vars.php');
     <title>Coronavirus (COVID-19) Situaci&oacute;n mundial - Actualizaci&oacute;n diaria</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="css/css.css">
   </head>
@@ -38,7 +39,7 @@ require_once ('vars.php');
                         <?php echo number_format($numDeathsCases, 0, ',', '.'); ?>
                     </div>
                     <div class="text">
-                        Personas fallecidas
+                        Personas fallecidas (<?php echo number_format((($numDeathsCases*100) / $numConfirmedCases), 2, ',', '.'); ?>%)
                     </div>
                 </div>
 
@@ -47,7 +48,17 @@ require_once ('vars.php');
                         <?php echo number_format($numRecoveredCases, 0, ',', '.'); ?>
                     </div>
                     <div class="text">
-                        Personas recuperadas
+                        Personas recuperadas (<?php echo number_format((($numRecoveredCases*100) / $numConfirmedCases), 2, ',', '.'); ?>%)
+                    </div>
+                </div>
+
+
+                <div id="affected_countries" class="text-cases">
+                    <div class="number">
+                        <?php echo $numCountries; ?>
+                    </div>
+                    <div class="text">
+                        Paises afectados
                     </div>
                 </div>
             </div>
