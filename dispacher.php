@@ -13,7 +13,7 @@ if ($inputToken !== $verifiedToken) {
 
 function getValueForhighcharts($xAxisDateString, $value) {
 	return array(
-		"Date.UTC(".date("Y", strtotime($xAxisDateString)).", ".date("m", strtotime($xAxisDateString)).", ".date("d", strtotime($xAxisDateString)).")", 
+		"Date.UTC(".date("Y", strtotime($xAxisDateString)).", ".(date("m", strtotime($xAxisDateString)) - 1).", ".date("d", strtotime($xAxisDateString)).")", 
 		$value);
 }
 
@@ -142,13 +142,13 @@ for ($i=0; $i < $totalDays ; $i++) {
 }
 
 $countries = array_unique($countries);
-//echo "<pre>";
+echo "<pre>";
 //print_r($countries);
 //print ($numConfirmedCases);
 //print ($numDeathsCases);
 // print ($numRecoveredCases);
-//print_r($resultConfirmed);
-//echo "</pre>";
+print_r($resultConfirmed);
+echo "</pre>";
 
 $phpString = "<?php \$numConfirmedCases = $numConfirmedCases; \$numDeathsCases = $numDeathsCases; \$numRecoveredCases = $numRecoveredCases; ";
 $phpString .= "\$resultConfirmed = ".var_export($resultConfirmed, true)."; \$resultDeaths = ".var_export($resultDeaths, true)."; \$resultRecovered = ".var_export($resultRecovered, true)."; ";
